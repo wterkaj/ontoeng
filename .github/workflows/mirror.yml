@@ -10,16 +10,9 @@ jobs:
     runs-on: ubuntu-latest
         
     steps:
-
-      - name: Checkout Source Repository
-        uses: actions/checkout@v4
+      - name: mirror
+        id: mirror
+        uses: bridgelightcloud/github-mirror-action@v1
         with:
-          repository: wterkaj/vebjs
-          path: img
-
-      - name: Mirror Folder Content
-        run: |
-          cp -r img/* .
-          git add .
-          git commit -m "Mirror folder content from source repository"
-          git push
+          origin: wterkaj/vebjs
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
