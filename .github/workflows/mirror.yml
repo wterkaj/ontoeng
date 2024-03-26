@@ -1,0 +1,25 @@
+name: Mirror Folder Content
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Repository
+        uses: actions/checkout@v2
+        with:
+          repository: difactory/repository
+          path: ontoeng
+
+      - name: Mirror Folder Content
+        run: |
+          cp -r ontoeng/* ./
+          cd ./
+          git add .
+          git commit -m "Mirror folder content from source repository"
+          git push
