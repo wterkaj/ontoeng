@@ -14,12 +14,12 @@ jobs:
       - name: Checkout Source Repository
         uses: actions/checkout@v4
         with:
-          repository: difactory/repository
-          path: ontoeng
+          repository: wterkaj/vebjs
+          path: img
 
       - name: Mirror Folder Content
         run: |
-          cp -r ontoeng/* .
+          cp -r img/* .
           git add .
           git commit -m "Mirror folder content from source repository"
           git push
