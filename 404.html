@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="refresh" content="0;url=https://wterkaj.github.io/ontoeng{REQUEST_URI}.txt" />
+  <script>
+    window.onload = function() {
+      // Extract the path from the URL
+      var path = window.location.pathname;
+      // Redirect to the corresponding .txt file
+      window.location.href = 'https://wterkaj.github.io' + path + '.txt';
+    };
+  </script>
 </head>
 <body>
   Redirecting...
